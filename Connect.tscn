@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Connect.gd" type="Script" id=1]
+
+[node name="Connect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 900.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ConnectPanel" type="Panel" parent="."]
+margin_left = 229.0
+margin_top = 177.0
+margin_right = 661.0
+margin_bottom = 437.0
+
+[node name="Greeting" type="Label" parent="ConnectPanel"]
+margin_left = 132.0
+margin_top = 35.0
+margin_right = 295.0
+margin_bottom = 49.0
+text = "Welcome to Speed Game"
+
+[node name="Instruction" type="Label" parent="ConnectPanel"]
+margin_left = 92.0
+margin_top = 93.0
+margin_right = 265.0
+margin_bottom = 107.0
+text = "Enter the server IP address"
+
+[node name="ServerIp" type="LineEdit" parent="ConnectPanel"]
+margin_left = 37.0
+margin_top = 121.0
+margin_right = 242.0
+margin_bottom = 145.0
+text = "127.0.0.1:88"
+
+[node name="submitIp" type="Button" parent="ConnectPanel"]
+margin_left = 251.0
+margin_top = 121.0
+margin_right = 383.0
+margin_bottom = 145.0
+text = "Connect"
+
+[node name="BeginStateText" type="Label" parent="ConnectPanel"]
+margin_left = 100.0
+margin_top = 179.0
+margin_right = 273.0
+margin_bottom = 199.0
+text = "0/2 Connected to Server"
+
+[connection signal="pressed" from="ConnectPanel/submitIp" to="." method="_on_Button_pressed"]

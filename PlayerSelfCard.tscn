@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://BaseCard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://CardArea.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 17, 23 )
+
+[node name="PlayerSelfCard" instance=ExtResource( 1 )]
+position = Vector2( 137, 103 )
+
+[node name="CardArea" type="Area2D" parent="." index="0"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardArea" index="0"]
+z_index = 5
+shape = SubResource( 1 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CardArea/CollisionShape2D" index="0"]
+show_behind_parent = true
+margin_left = -17.0
+margin_top = -23.0
+margin_right = 17.0
+margin_bottom = 23.0
+mouse_filter = 2
+border_color = Color( 1, 1, 1, 1 )
+border_width = 3.0
+
+[connection signal="input_event" from="CardArea" to="CardArea" method="_on_CardArea_input_event"]
+[connection signal="mouse_entered" from="CardArea" to="CardArea" method="_on_CardArea_mouse_entered"]
+[connection signal="mouse_exited" from="CardArea" to="CardArea" method="_on_CardArea_mouse_exited"]
